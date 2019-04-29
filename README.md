@@ -1,4 +1,4 @@
-# Cryptography
+# INFR10067
 
 This repo contains my own implementations of algorithms found in the University of Edinburgh Computer Security course (INFR10067).
 
