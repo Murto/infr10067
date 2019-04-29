@@ -17,9 +17,8 @@ target_include_directories(infr10067
     $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
 )
 
-set_target_properties(infr10067 PROPERTIES PUBLIC_HEADER include/rail_fence.hpp)
-set_target_properties(infr10067 PROPERTIES PUBLIC_HEADER include/substitution.hpp)
-set_target_properties(infr10067 PROPERTIES PUBLIC_HEADER include/vigenere.hpp)
+file(GLOB HEADERS "${CMAKE_CURRENT_SOURCE_DIR}/include/*.hpp")
+set_target_properties(infr10067 PROPERTIES PUBLIC_HEADER "${HEADERS}")
 
 
 include(GNUInstallDirs)
