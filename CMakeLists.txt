@@ -18,6 +18,7 @@ target_include_directories(infr10067
 )
 
 set_target_properties(infr10067 PROPERTIES PUBLIC_HEADER include/rail_fence.hpp)
+set_target_properties(infr10067 PROPERTIES PUBLIC_HEADER include/substitution.hpp)
 
 include(GNUInstallDirs)
 
