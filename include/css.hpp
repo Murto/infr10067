@@ -47,7 +47,7 @@ std::string encrypt(CSS::KeyType key, std::initializer_list<CSS::TapType> taps_1
   ciphertext.resize(plaintext.size());
   for (auto i = 0; i < plaintext.size(); ++i) {
     auto byte = generator.generate_byte();
-    ciphertext[i] = plaintext[i] + byte;
+    ciphertext[i] = plaintext[i] ^ byte;
   }
   return ciphertext;
 }
@@ -58,7 +58,7 @@ std::string decrypt(CSS::KeyType key, std::initializer_list<CSS::TapType> taps_1
   plaintext.resize(ciphertext.size());
   for (auto i = 0; i < ciphertext.size(); ++i) {
     auto byte = generator.generate_byte();
-    plaintext[i] = ciphertext[i] - byte;
+    plaintext[i] = ciphertext[i] ^ byte;
   }
   return plaintext;
 }

@@ -66,7 +66,7 @@ std::string encrypt(const typename LFSR<KEY_SIZE>::KeyType& key, std::initialize
   ciphertext.resize(plaintext.size());
   for (auto i = 0; i < plaintext.size(); ++i) {
     auto byte = generator.generate_byte();
-    ciphertext[i] = plaintext[i] + byte;
+    ciphertext[i] = plaintext[i] ^ byte;
   }
   return ciphertext;
 }
@@ -78,7 +78,7 @@ std::string decrypt(const typename LFSR<KEY_SIZE>::KeyType& key, std::initialize
   plaintext.resize(ciphertext.size());
   for (auto i = 0; i < ciphertext.size(); ++i) {
     auto byte = generator.generate_byte();
-    plaintext[i] = ciphertext[i] - byte;
+    plaintext[i] = ciphertext[i] ^ byte;
   }
   return plaintext;
 }
